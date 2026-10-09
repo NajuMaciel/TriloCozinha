@@ -1,0 +1,284 @@
+:root {
+  --laranja: #F96E46;
+  --fundo: #E4E2E5;
+  --caixa: #d9d9d9;
+  --texto: #111111;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #E4E2E5;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  color: var(--texto);
+}
+
+/* ---------- Tela 744 x 1133 ---------- */
+.tela {
+  position: relative;
+  width: 744px;
+  height: 1133px;
+  overflow: hidden;
+  background: var(--fundo);
+}
+
+/* ---------- Fundo decorativo ---------- */
+.fundo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.onda {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.onda-1 {
+  top: -260px;
+  right: -260px;
+  width: 760px;
+  height: 1100px;
+  background: #EEB3BD80;
+  transform: rotate(-18deg);
+}
+
+.onda-2 {
+  top: -120px;
+  right: -380px;
+  width: 700px;
+  height: 1000px;
+  background: #EEB3BD80;
+  transform: rotate(-12deg);
+}
+
+.onda-3 {
+  bottom: -320px;
+  left: -300px;
+  width: 900px;
+  height: 900px;
+  background: #EEB3BD80;
+}
+
+/* ---------- Topo ---------- */
+.topo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 106px 44px 0 43px;
+  height: 200px;
+}
+
+.logo {
+  display: block;
+  width: 174px;
+  height: auto;
+}
+
+/* Texto exibido caso a imagem da logo não seja encontrada */
+.logo-texto {
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: var(--laranja);
+  line-height: 1;
+}
+
+.botao-menu {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 14px 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+}
+
+.botao-menu:hover,
+.botao-menu:focus-visible {
+  background: rgba(255, 112, 67, 0.12);
+  outline: none;
+}
+
+.ponto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--laranja);
+}
+
+/* ---------- Em atendimento ---------- */
+.atendimento {
+  position: relative;
+  z-index: 2;
+  margin-left: 105px;
+  width: 544px;
+}
+
+.titulo {
+  font-size: 29px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  margin-left: 11px;
+}
+
+/* Lista com scroll: os pedidos vão chegando aqui */
+.lista-pedidos {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  max-height: 740px;
+  overflow-y: auto;
+  padding: 4px 8px 16px 0;
+  margin-right: -8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 112, 67, 0.5) transparent;
+}
+
+.lista-pedidos::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lista-pedidos::-webkit-scrollbar-thumb {
+  background: rgba(255, 112, 67, 0.5);
+  border-radius: 6px;
+}
+
+/* ---------- Caixa de pedido ---------- */
+.pedido {
+  flex-shrink: 0;
+  background: var(--caixa);
+  border-radius: 24px;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  transition: background 0.3s ease, opacity 0.4s ease, transform 0.4s ease, margin 0.4s ease;
+}
+
+/* Caixa aberta: fundo mais claro */
+.pedido.aberto {
+  background: #f3f2f2;
+}
+
+.pedido.novo {
+  animation: entrar 0.45s ease;
+}
+
+.pedido.saindo {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pedido-cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 104px;
+  padding: 18px 28px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-family: inherit;
+  color: var(--texto);
+  cursor: pointer;
+}
+
+.pedido-cabecalho:focus-visible {
+  outline: 2px solid var(--laranja);
+  outline-offset: -4px;
+  border-radius: 24px;
+}
+
+.pedido-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pedido-numero {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--laranja);
+}
+
+.pedido-descricao {
+  font-size: 19px;
+  font-weight: 400;
+}
+
+/* ---------- Área que expande ---------- */
+.pedido-detalhes {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 15px;
+  transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.35s ease;
+}
+
+.pedido.aberto .pedido-detalhes {
+  max-height: 130px;
+  opacity: 1;
+  padding: 0 15px 36px;
+}
+
+.botao-entregue {
+  display: block;
+  width: 100%;
+  height: 70px;
+  font-family: inherit;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #7a675f;
+  background: #e3e2e2;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.botao-entregue:hover {
+  background: #d9d7d7;
+}
+
+.botao-entregue:focus-visible {
+  outline: 2px solid var(--laranja);
+  outline-offset: 2px;
+}
+
+.botao-entregue:active {
+  transform: scale(0.98);
+}
+
+.lista-vazia {
+  text-align: center;
+  font-size: 18px;
+  color: #777;
+  padding: 40px 0;
+}
