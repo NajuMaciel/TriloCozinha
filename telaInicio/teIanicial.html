@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="telaInicial.css" >
+  <link rel="stylesheet" href="telaInicial.css">
+
 </head>
+
 <body>
 
   <main class="tela">
 
     <!-- Formas decorativas do fundo -->
     <div class="fundo" aria-hidden="true">
-      <img src="/public/images/onda.svg" alt="" class="imagem-fundo">
-      <span class="onda onda-1"></span>
-      <span class="onda onda-2"></span>
-      <span class="onda onda-3"></span>
+      <!-- Imagem laranja original movida para a parte inferior -->
+      <img src="/public/images/onda.svg" alt="" class="imagem-fundo-inferior">
+
+      <!-- Espaços para as novas imagens (você pode colocar os links aqui depois) -->
+      <img src="/public/images/ellipse-5.svg" alt="" class="imagem-fundo-superior">
+      <img src="/public/images/ellipse-3.svg" alt="" class="imagem-fundo-meio">
     </div>
 
     <!-- Topo: logo + botão dos 3 pontinhos -->
@@ -26,11 +31,13 @@
       <!-- Coloque o arquivo da logo em img/logo-trilo.png (ou ajuste o caminho abaixo) -->
       <img id="logo" class="logo" src="/public/images/logo.svg" alt="Trilo">
 
-      <button id="botaoMenu" class="botao-menu" type="button" aria-label="Abrir menu lateral">
-        <span class="ponto"></span>
-        <span class="ponto"></span>
-        <span class="ponto"></span>
-      </button>
+      <a href="../telaLateral/telaLateral.html">
+        <button id="botaoMenu" class="botao-menu" type="button" aria-label="Abrir menu lateral">
+          <span class="ponto"></span>
+          <span class="ponto"></span>
+          <span class="ponto"></span>
+        </button>
+      </a>
     </header>
 
     <!-- Lista de pedidos em atendimento -->
@@ -43,4 +50,5 @@
 
   <script src="telaInicial.js"></script>
 </body>
+
 </html>

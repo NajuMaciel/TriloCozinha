@@ -31,42 +31,48 @@ body {
 }
 
 /* ---------- Fundo decorativo ---------- */
+/* ---------- Fundo decorativo ---------- */
 .fundo {
   position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Fica atrás do .topo e .atendimento (que têm z-index: 2) */
+  pointer-events: none; /* Garante que as imagens não atrapalhem o clique nos botões */
+  overflow: hidden;
 }
 
-.onda {
+/* Imagem laranja no final da página */
+.imagem-fundo-inferior {  
+  opacity: 0.5;
   position: absolute;
-  border-radius: 50%;
+  bottom: 0; /* Joga a imagem para o final da página */
+  left: 0;
+  width: 100%; /* Ajuste a largura conforme o tamanho real do seu SVG */
+  /* opacity: 0.5; /* Descomente e ajuste a opacidade se quiser deixar mais suave */
 }
 
-.onda-1 {
-  top: -260px;
-  right: -260px;
-  width: 760px;
-  height: 1100px;
-  background: #EEB3BD80;
-  transform: rotate(-18deg);
+/* Placeholder para a imagem do topo (canto superior direito) */
+.imagem-fundo-superior {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 80%;
+  /* opacity: 0.4; */
 }
 
-.onda-2 {
-  top: -120px;
-  right: -380px;
-  width: 700px;
-  height: 1000px;
-  background: #EEB3BD80;
-  transform: rotate(-12deg);
-}
-
-.onda-3 {
-  bottom: -320px;
-  left: -300px;
-  width: 900px;
-  height: 900px;
-  background: #EEB3BD80;
+/* Placeholder para a imagem do meio (lateral esquerda) */
+.imagem-fundo-meio {
+  position: absolute;
+  top: 40%;
+  left: -20%;
+  width: 70%;
+  /* opacity: 0.3; */
+  position: absolute;
+  top: -10%;  /* Antes estava 40%, diminuindo para 10% ela sobe bastante para ficar perto da superior */
+  left: 40%; /* Ajuste esse valor para mover para a esquerda (-) ou direita (+) */
+  width: 60%; /* Você pode diminuir um pouco a largura se ela estiver muito grande */
 }
 
 /* ---------- Topo ---------- */
@@ -84,6 +90,7 @@ body {
   display: block;
   width: 174px;
   height: auto;
+  margin-top: -7%;
 }
 
 /* Texto exibido caso a imagem da logo não seja encontrada */
@@ -105,6 +112,7 @@ body {
   cursor: pointer;
   border-radius: 12px;
   transition: background 0.2s ease;
+  margin-top: -2.5%;
 }
 
 .botao-menu:hover,

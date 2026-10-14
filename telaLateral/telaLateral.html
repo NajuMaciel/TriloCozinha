@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilo - Pedidos Entregues</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Estilos base (fundo, logo, pontinhos) vêm da tela inicial -->
+    <link rel="stylesheet" href="telaLateral.css">
+</head>
+
+<body>
+        <!-- Topo: apenas a logo (os 3 pontinhos ficam dentro do painel laranja) -->
+        <header class="topo">
+            <img id="logo" class="logo" src="/public/images/logo.svg" alt="Trilo">
+        </header>
+
+        <!-- Caixas decorativas da tela inicial, aparecendo atrás do painel -->
+        <ul class="caixas-fundo" aria-hidden="true">
+            <li class="clara"></li>
+            <li class="clara"></li>
+            <li class="clara"></li>
+        </ul>
+
+        <!-- Clicar fora do painel volta para a tela inicial -->
+        <div id="cortina" class="cortina"></div>
+
+        <!-- Painel laranja -->
+        <aside id="painel" class="painel" aria-label="Pedidos entregues">
+
+            <!-- 3 pontinhos: voltam para a tela inicial -->
+             <button id="botaoMenu" class="botao-menu" type="button" aria-label="Voltar para a tela inicial">
+                <span class="ponto"></span>
+                <span class="ponto"></span>
+                <span class="ponto"></span>
+            </button>
+
+            <h2 class="painel-titulo">Pedidos Entregues</h2>
+
+            <ul id="listaEntregues" class="lista-entregues"></ul>
+
+            <div class="painel-rodape">
+                <button id="botaoHistorico" class="link-historico" type="button">
+                    Ver todos pedidos
+                </button>
+
+                <button id="botaoCadastrar" class="botao-cadastrar" type="button">
+                    <span class="mais" aria-hidden="true">+</span>
+                    <span>Cadastrar</span>
+                </button>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <script src="pedidos.js"></script>
+    <script src="telaLateral.js"></script>
+</body>
+
+</html>
