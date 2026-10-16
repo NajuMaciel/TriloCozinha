@@ -1,0 +1,150 @@
+/* ===== Reset e variáveis ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Tamanho da tela: mude aqui se precisar de outro tamanho */
+  --largura-tela: 528px;
+  --altura-tela: 828px;
+
+  --laranja: #fa7650;
+  --cartao: #e5e3e6;
+  --texto: #2b2b2b;
+  --texto-suave: #6b6b6b;
+  --borda-voltar: #fba58a;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100dvh;
+  background: #cfcdd0;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Tela ===== */
+.tela {
+  position: relative;
+  width: var(--largura-tela);
+  height: var(--altura-tela);
+  display: flex;
+  flex-direction: column;
+  padding: 50px 57px 36px;
+  overflow: hidden;
+  background: var(--laranja);
+}
+
+/* ===== Topo ===== */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Deixa a logo na cor clara (a mesma logo da outra tela).
+   Se tiver uma versão clara do arquivo, troque o src no HTML e apague a linha filter. */
+.logo {
+  height: 70px;
+  width: auto;
+  min-width: 120px;
+  display: block;
+  filter: brightness(0) invert(0.9);
+}
+
+.titulo {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+/* ===== Lista de pedidos ===== */
+.lista-pedidos {
+  flex: 1;
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow: hidden;
+}
+
+.pedido {
+  flex: none;
+  height: 77px;
+  padding: 0 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-radius: 16px;
+  background: var(--cartao);
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.pedido-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.pedido-numero {
+  color: var(--texto);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.pedido-itens {
+  color: var(--texto-suave);
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pedido-hora {
+  flex: none;
+  color: var(--texto);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Mensagem quando não há pedidos */
+.vazio {
+  margin-top: 40px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+/* ===== Rodapé ===== */
+.rodape {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.botao-voltar {
+  width: 110px;
+  height: 40px;
+  border: 2px solid var(--borda-voltar);
+  border-radius: 20px;
+  background: transparent;
+  color: #111;
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.botao-voltar:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

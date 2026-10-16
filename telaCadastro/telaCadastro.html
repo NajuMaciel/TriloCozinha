@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trilo - Cadastro de item</title>
+  <link rel="stylesheet" href="telaCadastro.css">
+</head>
+<body>
+
+  <main class="tela">
+
+    <!-- Imagens de fundo (manchas rosas) -->
+    <div class="imagem-fundo-superior" id="imagemFundoSuperior">
+        <img src="/public/images/ellipse-7.svg" alt="">
+    </div>
+
+    <div class="imagem-fundo-inferior" id="imagemFundoInferior">
+        <img src="/public/images/ellipse-6.svg" alt="">
+    </div>
+
+    <!-- Topo -->
+    <header class="topo">
+      <!-- Coloque aqui a imagem do TRILO (ajuste o caminho do src) -->
+      <img class="logo" id="logoTrilo" src="/public/images/logo.svg" alt="TRILO">
+      <button type="button" class="botao-voltar" id="botaoVoltar">Voltar</button>
+    </header>
+
+    <!-- Formulário -->
+    <form class="formulario" id="formCadastro" novalidate>
+
+      <div class="campo">
+        <label for="categoria">Categoria</label>
+        <select id="categoria" name="categoria" required>
+          <option value="" selected disabled hidden></option>
+          <option value="salgados">Salgados</option>
+          <option value="refeicoes">Refeições</option>
+          <option value="bebidas">Bebidas</option>
+          <option value="doces">Doces</option>
+          <option value="Snacks">Snacks</option>
+        </select>
+        <span class="erro" id="erroCategoria"></span>
+      </div>
+
+      <div class="campo">
+        <label for="nomeItem">Nome do Item</label>
+        <input type="text" id="nomeItem" name="nomeItem" maxlength="60" autocomplete="off" required>
+        <span class="erro" id="erroNome"></span>
+      </div>
+
+      <div class="campo">
+        <label for="preco">Preço (R$)</label>
+        <input type="text" id="preco" name="preco" inputmode="decimal" autocomplete="off" required>
+        <span class="erro" id="erroPreco"></span>
+      </div>
+
+    </form>
+
+    <!-- Mensagem de sucesso -->
+    <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+    <!-- Rodapé rosa com os botões -->
+    <footer class="rodape">
+      <button type="button" class="botao botao-cancelar" id="botaoCancelar">Cancelar</button>
+      <button type="submit" form="formCadastro" class="botao botao-confirmar" id="botaoConfirmar">Confirmar</button>
+    </footer>
+
+  </main>
+
+  <script src="telaCadastro.js"></script>
+</body>
+</html>

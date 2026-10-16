@@ -1,0 +1,240 @@
+/* ===== Reset e variáveis ===== */
+* {
+    margin: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --laranja: #ff7a50;
+    --fundo: #e5e3e6;
+    --campo: #f1f1f3;
+    --rosa-rodape: #edb3be;
+    --rosa-borda: #eda9b5;
+    --vermelho: #c8231c;
+    --verde: #1e9a3c;
+    --erro: #c8231c;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100dvh;
+    background: #cfcdd0;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== Tela 1133 x 744 ===== */
+.tela {
+    position: relative;
+    width: 1133px;
+    height: 744px;
+    overflow: hidden;
+    background: var(--fundo);
+}
+
+/* ===== Imagens de fundo ===== */
+/* Para usar suas imagens, descomente a linha background-image e
+   coloque o caminho do arquivo. */
+.imagem-fundo-superior {
+    position: absolute;
+    top: -90px;
+    right: -35%;
+    width: 800px;
+    height: 500px;
+    color: rgba(249, 110, 70, 0.13);
+}
+
+.imagem-fundo-inferior {
+    position: absolute;
+    bottom: -90px;
+    left: -2px;
+    width: 820px;
+    height: 560px;
+    color: rgba(249, 110, 70, 0.13);
+}
+
+/* ===== Topo ===== */
+.topo {
+    position: absolute;
+    top: 30px;
+    left: 60px;
+    right: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+.logo {
+    height: 80px;
+    width: auto;
+    min-width: 140px;
+    display: block;
+}
+
+.botao-voltar {
+    width: 110px;
+    height: 40px;
+    margin-top: 20px;
+    border: 2px solid var(--rosa-borda);
+    border-radius: 20px;
+    background: transparent;
+    color: #111;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.botao-voltar:hover {
+    background: rgba(237, 169, 181, 0.35);
+}
+
+/* ===== Formulário ===== */
+.formulario {
+    position: absolute;
+    top: 135px;
+    left: 60px;
+    right: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    z-index: 2;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.campo label {
+    color: var(--laranja);
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    height: 62px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--campo);
+    color: #222;
+    font-family: inherit;
+    font-size: 20px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
+    outline: none;
+}
+
+.campo input:focus,
+.campo select:focus {
+    box-shadow: 0 0 0 3px rgba(255, 122, 80, 0.55), 0 3px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Seta laranja do select */
+.campo select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    background-image: linear-gradient(45deg, transparent 50%, var(--laranja) 50%),
+        linear-gradient(135deg, var(--laranja) 50%, transparent 50%);
+    background-position: calc(100% - 28px) 27px, calc(100% - 22px) 27px;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+}
+
+/* Campo com erro */
+.campo.invalido input,
+.campo.invalido select {
+    box-shadow: 0 0 0 2px var(--erro), 0 3px 4px rgba(0, 0, 0, 0.25);
+}
+
+.erro {
+    position: absolute;
+    bottom: -18px;
+    left: 4px;
+    font-size: 13px;
+    color: var(--erro);
+    min-height: 16px;
+}
+
+/* ===== Aviso de sucesso ===== */
+.aviso {
+    position: absolute;
+    left: 50%;
+    bottom: 120px;
+    transform: translateX(-50%) translateY(10px);
+    padding: 12px 28px;
+    border-radius: 10px;
+    background: var(--verde);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+    z-index: 3;
+}
+
+.aviso.visivel {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ===== Rodapé rosa ===== */
+.rodape {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--rosa-rodape);
+    z-index: 2;
+}
+
+.botao {
+    width: 300px;
+    height: 52px;
+    border: none;
+    border-radius: 10px;
+    color: #f1f1f3;
+    font-family: inherit;
+    font-size: 22px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.2s, transform 0.1s;
+}
+
+.botao:hover {
+    filter: brightness(1.08);
+}
+
+.botao:active {
+    transform: scale(0.98);
+}
+
+.botao-cancelar {
+    background: var(--vermelho);
+    margin-left: 15%;
+}
+
+.botao-confirmar {
+    background: var(--verde);
+    margin-right: 15%;
+}

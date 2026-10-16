@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trilo - Pedidos entregues</title>
+  <link rel="stylesheet" href="telaPedidos.css">
+</head>
+<body>
+
+  <main class="tela">
+
+    <!-- Topo -->
+    <header class="topo">
+      <!-- Mesma logo da outra tela; o CSS deixa ela clara. Ajuste o caminho se precisar. -->
+      <img class="logo" id="logoTrilo" src="/public/images/logo.svg" alt="TRILO">
+      <h1 class="titulo">Pedidos Entregues</h1>
+    </header>
+
+    <!-- Caixas dos pedidos (criadas pelo JavaScript) -->
+    <section class="lista-pedidos" id="listaPedidos" aria-label="Pedidos entregues"></section>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+      <button type="button" class="botao-voltar" id="botaoVoltar">Voltar</button>
+    </footer>
+
+  </main>
+
+  <script src="telaPedidos.js"></script>
+</body>
+</html>
