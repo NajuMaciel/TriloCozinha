@@ -6,7 +6,20 @@
     --laranja-painel: #F96E46;
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+.tela {
+    position: relative;
+    width: 744px;
+    height: 1133px;
+    overflow: hidden;
+    background: var(--fundo);
+    margin: 0 auto;
+}
 
 /* ---------- Caixas decorativas atrás do painel ---------- */
 .caixas-fundo {
@@ -102,10 +115,11 @@
 }
 
 .painel-titulo {
-    margin-top: 96px;
+    margin-top: 80px;
     font-size: 31px;
     font-weight: 400;
     line-height: 1.2;
+    margin-left: 30px;
 }
 
 /* ---------- Lista de pedidos entregues (com scroll) ---------- */
