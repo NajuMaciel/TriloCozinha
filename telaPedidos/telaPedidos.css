@@ -7,8 +7,8 @@
 
 :root {
   /* Tamanho da tela: mude aqui se precisar de outro tamanho */
-  --largura-tela: 528px;
-  --altura-tela: 828px;
+  --largura-tela: 744px;
+  --altura-tela: 930px;
 
   --laranja: #fa7650;
   --cartao: #e5e3e6;
@@ -37,10 +37,13 @@ body {
   width: var(--largura-tela);
   height: var(--altura-tela);
   display: flex;
+  justify-content: center;
   flex-direction: column;
   padding: 50px 57px 36px;
   overflow: hidden;
   background: var(--laranja);
+  border: 10px solid #ffffff;
+  border-radius: 28px;
 }
 
 /* ===== Topo ===== */
@@ -74,6 +77,12 @@ body {
   flex-direction: column;
   gap: 24px;
   overflow: hidden;
+  overflow-y: auto;
+  /* Habilita a barra de rolagem/gesto de arrastar */
+  max-height: 80vh;
+  /* Define uma altura máxima (ou h-screen no Tailwind/flexbox) */
+  -webkit-overflow-scrolling: touch;
+  /* Melhora a rolagem em dispositivos iOS */
 }
 
 .pedido {

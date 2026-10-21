@@ -1,12 +1,9 @@
-/* =====================================================
-   Tela lateral - Pedidos Entregues
-   (usa telaInicial.css como base: fundo, logo e pontinhos)
-   ===================================================== */
 :root {
     --laranja-painel: #F96E46;
 }
 
-* {
+html,
+body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -15,10 +12,14 @@
 .tela {
     position: relative;
     width: 744px;
-    height: 1133px;
+    height: 900px;
     overflow: hidden;
     background: var(--fundo);
-    margin: 0 auto;
+    margin: 30px auto;
+}
+
+.topo {
+    margin-top: 35px;
 }
 
 /* ---------- Caixas decorativas atrás do painel ---------- */
@@ -67,7 +68,7 @@
     padding: 38px 36px 46px 42px;
     background: var(--laranja-painel);
     color: #ffffff;
-    border-radius: 28px 0 0 28px;
+    border-radius: 28px;
     box-shadow: -8px 0 28px rgba(0, 0, 0, 0.12);
     animation: painel-entrar 0.4s ease;
 }
@@ -104,6 +105,7 @@
 }
 
 .painel .botao-menu:hover,
+
 .painel .botao-menu:focus-visible {
     background: rgba(255, 255, 255, 0.18);
 }
@@ -216,6 +218,7 @@
 }
 
 .link-historico:focus-visible,
+
 .botao-cadastrar:focus-visible {
     outline: 2px solid #ffffff;
     outline-offset: 3px;

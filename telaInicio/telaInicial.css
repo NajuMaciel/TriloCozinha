@@ -16,6 +16,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  align-items: flex-end;
   background: #E4E2E5;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   color: var(--texto);
@@ -25,9 +26,10 @@ body {
 .tela {
   position: relative;
   width: 744px;
-  height: 1133px;
+  height: 930px;
   overflow: hidden;
   background: var(--fundo);
+  border-radius: 28px;
 }
 
 /* ---------- Fundo decorativo ---------- */
