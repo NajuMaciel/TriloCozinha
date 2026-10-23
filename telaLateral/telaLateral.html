@@ -33,25 +33,31 @@
         <aside id="painel" class="painel" aria-label="Pedidos entregues">
 
             <!-- 3 pontinhos: voltam para a tela inicial -->
-             <button id="botaoMenu" class="botao-menu" type="button" aria-label="Voltar para a tela inicial">
-                <span class="ponto"></span>
-                <span class="ponto"></span>
-                <span class="ponto"></span>
-            </button>
+            <a href="../telaInicio/teIanicial.html">
+                <button id="botaoMenu" class="botao-menu" type="button" aria-label="Voltar para a tela inicial">
+                    <span class="ponto"></span>
+                    <span class="ponto"></span>
+                    <span class="ponto"></span>
+                </button>
+            </a>
 
             <h2 class="painel-titulo">Pedidos Entregues</h2>
 
             <ul id="listaEntregues" class="lista-entregues"></ul>
 
             <div class="painel-rodape">
-                <button id="botaoHistorico" class="link-historico" type="button">
-                    Ver todos pedidos
-                </button>
 
-                <button id="botaoCadastrar" class="botao-cadastrar" type="button">
-                    <span class="mais" aria-hidden="true">+</span>
-                    <span>Cadastrar</span>
-                </button>
+                <a href="../telaPedidos/telaPedidos.html">
+                    <button id="botaoHistorico" class="link-historico" type="button">
+                        Ver todos pedidos
+                    </button>
+                </a>
+
+                <a href="../telaCadastro/telaCadastro.html">
+                    <button id="botaoCadastrar" class="botao-cadastrar" type="button">
+                        <span>Cadastrar</span>
+                    </button>
+                </a>
             </div>
 
         </aside>
