@@ -46,11 +46,21 @@ body {
    coloque o caminho do arquivo. */
 .imagem-fundo-superior {
     position: absolute;
-    top: -90px;
-    right: -47%;
+    top: -60px;
+    right: -54%;
     width: 800px;
     height: 500px;
-    color: rgba(249, 110, 70, 0.13);
+    color:#F96E46;
+}
+
+.imagem-fundo-meio {
+  position: absolute;
+  top: -60px;
+    right: -30px;
+    width: 480px;
+    height: auto;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .imagem-fundo-inferior {
@@ -59,7 +69,7 @@ body {
     left: -2px;
     width: 820px;
     height: 560px;
-    color: rgba(249, 110, 70, 0.13);
+    color: #F96E46;
 }
 
 /* ===== Topo ===== */
