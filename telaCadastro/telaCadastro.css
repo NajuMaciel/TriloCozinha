@@ -34,10 +34,11 @@ body {
 /* ===== Tela 1133 x 744 ===== */
 .tela {
     position: relative;
-    width: 1133px;
-    height: 744px;
+    width: 744px;
+    height: 930px;
     overflow: hidden;
     background: var(--fundo);
+    border-radius: 28px;
 }
 
 /* ===== Imagens de fundo ===== */
@@ -46,7 +47,7 @@ body {
 .imagem-fundo-superior {
     position: absolute;
     top: -90px;
-    right: -35%;
+    right: -47%;
     width: 800px;
     height: 500px;
     color: rgba(249, 110, 70, 0.13);
@@ -64,12 +65,12 @@ body {
 /* ===== Topo ===== */
 .topo {
     position: absolute;
-    top: 30px;
-    left: 60px;
-    right: 60px;
+    top: 40px;
+    left: 45px;
+    right: 45px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     z-index: 2;
 }
 
@@ -100,12 +101,12 @@ body {
 /* ===== Formulário ===== */
 .formulario {
     position: absolute;
-    top: 135px;
-    left: 60px;
-    right: 60px;
+    top: 230px;
+    left: 45px;
+    right: 45px;
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 32px;
     z-index: 2;
 }
 
@@ -199,10 +200,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 100px;
-    padding: 0 40px;
+    height: 90px;
+    padding: 0 35px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background: var(--rosa-rodape);
     z-index: 2;
@@ -231,10 +232,10 @@ body {
 
 .botao-cancelar {
     background: var(--vermelho);
-    margin-left: 15%;
+    margin-right: 5%;
 }
 
 .botao-confirmar {
     background: var(--verde);
-    margin-right: 15%;
+    margin-left: 5%;
 }
