@@ -2,14 +2,10 @@
 //  Tela inicial - Trilo (Em Atendimento)
 // =====================================================
 
-// Tela para onde o botão dos 3 pontinhos leva
-const TELA_LATERAL = "telaLateral.html";
-
 // Mude para true para simular pedidos chegando de tempos em tempos
 const SIMULAR_CHEGADA = false;
 
 const listaPedidos = document.getElementById("listaPedidos");
-const botaoMenu = document.getElementById("botaoMenu");
 const logo = document.getElementById("logo");
 
 let contadorPedidos = 100;
@@ -23,10 +19,7 @@ const pedidosIniciais = [
   "2x Açaí 500ml com granola",
 ];
 
-// ---------- Menu (3 pontinhos) ----------
-botaoMenu.addEventListener("click", () => {
-  window.location.href = TELA_LATERAL;
-});
+// (O botão dos 3 pontinhos agora é controlado pelo modal.js)
 
 // ---------- Logo: se a imagem não carregar, mostra o texto "Trilo" ----------
 logo.addEventListener("error", () => {
@@ -42,6 +35,8 @@ function criarPedido(descricao) {
 
   const item = document.createElement("li");
   item.className = "pedido novo";
+  item.dataset.numero = contadorPedidos;
+  item.dataset.descricao = descricao;
 
   const cabecalho = document.createElement("button");
   cabecalho.type = "button";
@@ -100,6 +95,15 @@ function alternarPedido(item) {
 }
 
 function marcarEntregue(item) {
+  // Registra no modal "Pedidos Entregues" (função do modal.js)
+  if (window.trilo && window.trilo.registrarEntregue) {
+    window.trilo.registrarEntregue({
+      numero: Number(item.dataset.numero),
+      itens: item.dataset.descricao.split(", "),
+      entregueEm: new Date().toISOString(),
+    });
+  }
+
   item.classList.add("saindo");
   setTimeout(() => {
     item.remove();

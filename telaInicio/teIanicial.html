@@ -7,9 +7,9 @@
   <title>Trilo - Em Atendimento</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="telaInicial.css">
-
+  <link rel="stylesheet" href="modal.css">
 </head>
 
 <body>
@@ -18,26 +18,22 @@
 
     <!-- Formas decorativas do fundo -->
     <div class="fundo" aria-hidden="true">
-      <!-- Imagem laranja original movida para a parte inferior -->
       <img src="/public/images/onda.svg" alt="" class="imagem-fundo-inferior">
-
-      <!-- Espaços para as novas imagens -->
       <img src="/public/images/ellipse-5.svg" alt="" class="imagem-fundo-superior">
       <img src="/public/images/ellipse-3.svg" alt="" class="imagem-fundo-meio">
     </div>
 
-    <!-- Topo: logo + botão dos 3 pontinhos -->
+    <!-- Topo: logo + botão dos 3 pontinhos (abre o modal) -->
     <header class="topo">
-      <!-- Coloque o arquivo da logo em img/logo-trilo.png (ou ajuste o caminho abaixo) -->
       <img id="logo" class="logo" src="/public/images/logo.svg" alt="Trilo">
 
-      <a href="../telaLateral/telaLateral.html">
-        <button id="botaoMenu" class="botao-menu" type="button" aria-label="Abrir menu lateral">
-          <span class="ponto"></span>
-          <span class="ponto"></span>
-          <span class="ponto"></span>
-        </button>
-      </a>
+      <button id="botaoMenu" class="botao-menu" type="button"
+              aria-label="Abrir pedidos entregues"
+              aria-haspopup="dialog" aria-expanded="false" aria-controls="modalEntregues">
+        <span class="ponto"></span>
+        <span class="ponto"></span>
+        <span class="ponto"></span>
+      </button>
     </header>
 
     <!-- Lista de pedidos em atendimento -->
@@ -46,12 +42,35 @@
       <ul id="listaPedidos" class="lista-pedidos"></ul>
     </section>
 
+    <!-- ===== MODAL: Pedidos Entregues ===== -->
+    <!-- Cortina: clicar fora do painel fecha o modal -->
+    <div id="cortina" class="cortina" hidden></div>
+
+    <aside id="modalEntregues" class="modal-painel" role="dialog"
+           aria-modal="true" aria-labelledby="modalTitulo" aria-hidden="true">
+
+      <!-- 3 pontinhos: fecham o modal -->
+      <button id="botaoFecharModal" class="botao-menu botao-menu--modal" type="button"
+              aria-label="Fechar pedidos entregues">
+        <span class="ponto"></span>
+        <span class="ponto"></span>
+        <span class="ponto"></span>
+      </button>
+
+      <h2 id="modalTitulo" class="painel-titulo">Pedidos Entregues</h2>
+
+      <ul id="listaEntregues" class="lista-entregues"></ul>
+
+      <div class="painel-rodape">
+        <a href="../telaPedidos/telaPedidos.html" class="link-historico">Ver todos pedidos</a>
+        <a href="../telaCadastro/telaCadastro.html" class="botao-cadastrar">Cadastrar</a>
+      </div>
+    </aside>
+
   </main>
 
   <script src="telaInicial.js"></script>
+  <script src="modal.js"></script>
 </body>
-
-
-<!-- FAZER UM MODAL PARA COLOCAR AS INFORMAÇÕES NA BARRA QUE SURGE DOS TRES PONTINHOS - NAO VAI SER UMA PAGINA DIFERENTE-->
 
 </html>
