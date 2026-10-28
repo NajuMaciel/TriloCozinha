@@ -7,6 +7,9 @@
   // Mesma chave usada pela tela "Ver todos pedidos"
   const CHAVE_STORAGE = "pedidosEntregues";
 
+  // Guarda o momento em que você clicou em "Limpar lista" (só esconde do modal)
+  const CHAVE_LIMPEZA = "modalLimpezaEm";
+
   // Para onde cada link leva (confira se os caminhos estão certos)
   const TELA_CADASTRO = "../telaCadastro/telaCadastro.html";
   const TELA_TODOS_PEDIDOS = "../telaPedidos/telaPedidos.html";
@@ -19,6 +22,7 @@
   const modal = document.getElementById("modalEntregues");
   const cortina = document.getElementById("cortina");
   const listaEntregues = document.getElementById("listaEntregues");
+  const botaoLimpar = document.getElementById("botaoLimpar");
 
   document.querySelector(".botao-cadastrar").href = TELA_CADASTRO;
   document.querySelector(".link-historico").href = TELA_TODOS_PEDIDOS;
@@ -95,13 +99,33 @@
     return item;
   }
 
+  // O modal mostra só os pedidos entregues HOJE e depois do último "Limpar lista".
+  // Nada é apagado: a tela "Ver todos pedidos" continua com o histórico completo.
+  function entreguesVisiveis() {
+    const inicioDoDia = new Date();
+    inicioDoDia.setHours(0, 0, 0, 0);
+
+    const limpezaEm = new Date(localStorage.getItem(CHAVE_LIMPEZA) || 0).getTime() || 0;
+    const corte = Math.max(inicioDoDia.getTime(), limpezaEm);
+
+    return lerEntregues().filter((pedido) => new Date(pedido.entregueEm).getTime() > corte);
+  }
+
+  function limparLista() {
+    localStorage.setItem(CHAVE_LIMPEZA, new Date().toISOString());
+    desenharLista();
+  }
+
+  botaoLimpar.addEventListener("click", limparLista);
+
   function desenharLista() {
     // Mais recentes primeiro
-    const entregues = lerEntregues()
+    const entregues = entreguesVisiveis()
       .sort((a, b) => new Date(b.entregueEm) - new Date(a.entregueEm))
       .slice(0, QTD_RECENTES);
 
     listaEntregues.innerHTML = "";
+    botaoLimpar.hidden = entregues.length === 0;
 
     if (entregues.length === 0) {
       const vazio = document.createElement("li");

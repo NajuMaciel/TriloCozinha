@@ -1,6 +1,11 @@
+/* =====================================================
+   Modal lateral - Pedidos Entregues (Trilo)
+   Usa as variáveis do telaInicial.css (--texto, --laranja, --caixa)
+   ===================================================== */
+
 :root {
   --laranja-painel: #F96E46;
-  --tempo-entrada: 0.5s;   /* tempo para o painel entrar */
+  --tempo-entrada: 0.4s;   /* tempo para o painel entrar */
   --tempo-saida: 0.28s;    /* tempo para o painel sair */
 }
 
@@ -201,6 +206,23 @@
   outline-offset: 3px;
   border-radius: 999px;
 }
+
+/* Botão "Limpar lista" */
+.botao-limpar {
+  align-self: center;
+  margin-top: 4px;
+  padding: 6px 14px;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 15px;
+  color: #ffffff;
+  opacity: 0.85;
+  cursor: pointer;
+}
+.botao-limpar[hidden] { display: none; }
+.botao-limpar:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+.botao-limpar:focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; border-radius: 999px; }
 
 /* Quem prefere menos animação */
 @media (prefers-reduced-motion: reduce) {
